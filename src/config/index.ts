@@ -11,8 +11,10 @@ const envVariableSchema = object({
   PORT: string({ required_error: 'PORT is required' }).nonempty(),
   ADDRESS: string().default('0.0.0.0'),
   MONGODB_URI: string({ required_error: 'MONGODB_URI is required' }),
+  ACCESS_TOKEN_SECRET: string({
+    required_error: 'ACCESS_TOKEN_SECRET is required',
+  }),
 });
 
-export const { NODE_ENV, ADDRESS, PORT, MONGODB_URI } = envVariableSchema.parse(
-  process.env
-);
+export const { NODE_ENV, ADDRESS, PORT, MONGODB_URI, ACCESS_TOKEN_SECRET } =
+  envVariableSchema.parse(process.env);

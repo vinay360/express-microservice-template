@@ -13,11 +13,11 @@ app.use(express.json());
 app.use(cors());
 app.options('*', cors());
 
-app.use('/api/v1', router);
+app.use(router);
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
-    next(new HttpError(httpStatus.NOT_FOUND, 'Not found'));
+  next(new HttpError(httpStatus.NOT_FOUND, 'Not found'));
 });
 
 // convert error to ApiError, if needed
