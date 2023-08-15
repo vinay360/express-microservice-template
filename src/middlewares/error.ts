@@ -34,8 +34,7 @@ const errorConverter = (
 const errorHandler = (
     err: HttpError,
     req: Request,
-    res: Response,
-    next: NextFunction
+    res: Response
 ) => {
     let {statusCode, message} = err;
 
